@@ -1,0 +1,36 @@
+Desarrollo:
+
+1. Crear vista y ruta para visualizar el Gantt.
+
+2. Crear dase de datos
+
+CREATE TABLE gantt_tasks(
+id int AUTO_INCREMENT PRIMARY KEY,
+text varchar(200),
+duration int,
+progress float,
+start_date datetime,
+parent int,
+sortorder int DEFAULT 0
+);
+
+CREATE TABLE gantt_links(
+id int AUTO_INCREMENT PRIMARY KEY,
+type varchar(200),
+source int,
+target int
+);
+
+3. Insertar datos
+
+INSERT GANTT_TASKS
+(text, start_date, duration, progress, parent)
+VALUES
+("Proyecto #1", "2020-04-01 00:00:00", 5, 0.8, 0),
+("Tarea #1", "2020-04-06 00:00:00", 4, 0.5, 1),
+("Tarea #2", "2020-04-05 00:00:00", 6, 0.7, 1),
+("Tarea #3", "2020-04-07 00:00:00", 2, 0, 1),
+("Tarea #1.1", "2020-04-05 00:00:00", 5, 0.34, 2),
+("Tarea #1.2", "2020-04-11 00:00:00", 4, 0.5, 2),
+("Tarea #2.1", "2020-04-07 00:00:00", 5, 0.2, 3),
+("Tarea #2.2", "2020-04-06 00:00:00", 4, 0.9, 3);
